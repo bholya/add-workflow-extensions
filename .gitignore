@@ -1,0 +1,10 @@
+# Build files
+/target
+
+# Temp files
+.*.sw[a-p]
+*~
+
+# IDE
+.idea/
+*.iml
