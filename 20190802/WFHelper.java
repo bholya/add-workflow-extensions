@@ -1,5 +1,8 @@
 package com.example.plugins.tutorial.jira.workflow;
 
+import com.atlassian.cache.Cache;
+import com.atlassian.cache.CacheManager;
+import com.atlassian.cache.CacheSettingsBuilder;
 import com.atlassian.jira.component.ComponentAccessor;
 import com.atlassian.jira.issue.*;
 import com.atlassian.jira.issue.attachment.Attachment;
@@ -7,6 +10,7 @@ import com.atlassian.jira.issue.attachment.TemporaryWebAttachment;
 import com.atlassian.jira.issue.attachment.TemporaryWebAttachmentManager;
 import com.atlassian.jira.issue.fields.CustomField;
 import com.atlassian.jira.issue.history.ChangeItemBean;
+import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,11 +18,37 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class WFHelper {
 
     private static final Logger log = LoggerFactory.getLogger(WFHelper.class);
     public static final String UPLOADED_FILES = "CF_UPLOADED_FILES" ;
+
+    /*
+    @ComponentImport
+    private  CacheManager cacheManager;
+
+    private  Cache<String, List<List<String>> > fCache;
+    private static WFHelper fWFHelper ;
+
+    private void WFHeler(CacheManager cacheManager) {
+        fCache = this.cacheManager.getCache(UploadDocumentCache.class.getName() + ".cache",
+                new UploadDocumentCache(),
+                new CacheSettingsBuilder().expireAfterAccess(30, TimeUnit.DAYS).build());
+    }
+
+
+    private static getWFHelperInstance() {
+        if(fWFHelper == null) {
+            fWFHelper=  new WFHelper();
+        }
+
+    }
+   */
+
+
+    public static
 
     public static void doSomething(Map transientVars, MutableIssue issue,CustomFieldManager customFieldManager,boolean setValue) {
 

@@ -1,0 +1,71 @@
+
+[INFO] [talledLocalContainer] 2019-08-04 18:10:12,208 QuickReload - Plugin Installer INFO      [c.a.jira.plugin.JiraCacheResetter] Start resetting caches triggered by: onPluginEnabled, jiraIsShuttingDown: false
+[INFO] [talledLocalContainer] 2019-08-04 18:10:12,208 QuickReload - Plugin Installer INFO      [c.a.jira.plugin.JiraCacheResetter] Done resetting caches triggered by: onPluginEnabled, timeMillis: 0, jiraIsShuttingDown: false
+[INFO] [talledLocalContainer] 2019-08-04 18:10:12,219 QuickReload - Plugin Installer INFO      [c.a.l.p.quickreload.install.PluginInstallerMechanic]
+[INFO] [talledLocalContainer]                                                   ^
+[INFO] [talledLocalContainer]                                                   |
+[INFO] [talledLocalContainer]                                                   |
+[INFO] [talledLocalContainer]                                                   |
+[INFO] [talledLocalContainer]                                                   |
+[INFO] [talledLocalContainer]                                                   |
+[INFO] [talledLocalContainer]
+[INFO] [talledLocalContainer]                   ?[34mStealing back time from Maven since 2013.?[33m
+[INFO] [talledLocalContainer]
+[INFO] [talledLocalContainer]     Quick Reload Finished (1172 ms) - 'add-workflow-extensions-1.0.jar'?[22;39m
+[INFO] [talledLocalContainer] ################### [SetUploadedDocumentsPostFunction] START ##################################
+[INFO] [talledLocalContainer] [SetUploadedDocumentsPostFunction] ChangeItem : Field  status , Typejira , TO  3
+[INFO] [talledLocalContainer] Key : attachment :  Value null  New [temp2290607098888450005]
+[INFO] [talledLocalContainer] Key : description :  Value DESC - TEST - 01  New DESC - TEST - 01
+[INFO] [talledLocalContainer] TOTAL Attachment :  -> 1
+[INFO] [talledLocalContainer] Attachment : Filename -> JIRA_Ticket.JPG , ID -> 10000 , Created 2019-08-04 12:51:09.683
+[INFO] [talledLocalContainer]  ################### [SetUploadedDocumentsPostFunction]  END ##################################
+[INFO] [talledLocalContainer] ################### [CloseParentIssuePostFunction] START ##################################
+[INFO] [talledLocalContainer] [CloseParentIssuePostFunction] ChangeItem : Field  status , Typejira , TO  3
+[INFO] [talledLocalContainer] [CloseParentIssuePostFunction] ChangeItem : Field  Attachment , Typejira , TO  10113
+[INFO] [talledLocalContainer] TOTAL Attachment :  -> 1
+[INFO] [talledLocalContainer] Attachment : Filename -> JIRA_Ticket.JPG , ID -> 10000 , Created 2019-08-04 12:51:09.683
+[INFO] [talledLocalContainer] FOUND LAST_ATTCHM_LIST  : OLD  -> 1 , NEW -> 1
+[INFO] [talledLocalContainer]  +++++ NEW DOCUMENT : Filename -> JIRA_Ticket.JPG , ID -> 10000 , Created 2019-08-04 12:51:09.683
+[INFO] [talledLocalContainer]  ################### [CloseParentIssuePostFunction]  END ##################################
+[INFO] [talledLocalContainer] ################### [SetUploadedDocumentsPostFunction] START ##################################
+[INFO] [talledLocalContainer] [SetUploadedDocumentsPostFunction] ChangeItem : Field  status , Typejira , TO  1
+[INFO] [talledLocalContainer] Key : attachment :  Value null  New [temp2960615888368257796]
+[INFO] [talledLocalContainer] Key : description :  Value DESC - TEST - 01  New DESC - TEST - 01
+[INFO] [talledLocalContainer] TOTAL Attachment :  -> 2
+[INFO] [talledLocalContainer] Attachment : Filename -> Desert.jpg , ID -> 10113 , Created 2019-08-04 18:10:40.243
+[INFO] [talledLocalContainer] Attachment : Filename -> JIRA_Ticket.JPG , ID -> 10000 , Created 2019-08-04 12:51:09.683
+[INFO] [talledLocalContainer]  ################### [SetUploadedDocumentsPostFunction]  END ##################################
+[INFO] [talledLocalContainer] ################### [CloseParentIssuePostFunction] START ##################################
+[INFO] [talledLocalContainer] [CloseParentIssuePostFunction] ChangeItem : Field  status , Typejira , TO  1
+[INFO] [talledLocalContainer] [CloseParentIssuePostFunction] ChangeItem : Field  Attachment , Typejira , TO  10114
+[INFO] [talledLocalContainer] TOTAL Attachment :  -> 2
+[INFO] [talledLocalContainer] Attachment : Filename -> Desert.jpg , ID -> 10113 , Created 2019-08-04 18:10:40.243
+[INFO] [talledLocalContainer] Attachment : Filename -> JIRA_Ticket.JPG , ID -> 10000 , Created 2019-08-04 12:51:09.683
+[INFO] [talledLocalContainer] FOUND LAST_ATTCHM_LIST  : OLD  -> 2 , NEW -> 2
+[INFO] [talledLocalContainer]  +++++ NEW DOCUMENT : Filename -> Desert.jpg , ID -> 10113 , Created 2019-08-04 18:10:40.243
+[INFO] [talledLocalContainer]  +++++ NEW DOCUMENT : Filename -> JIRA_Ticket.JPG , ID -> 10000 , Created 2019-08-04 12:51:09.683
+[INFO] [talledLocalContainer]  ################### [CloseParentIssuePostFunction]  END ##################################
+[INFO] [talledLocalContainer] 2019-08-04 18:17:40,777 Caesium-1-1 INFO ServiceRunner     [c.a.j.p.h.service.connect.InstallGlancesJobHandler] Running InstallGlancesJobHandler...
+[INFO] [talledLocalContainer] 2019-08-04 18:17:40,778 Caesium-1-1 INFO ServiceRunner     [c.a.j.p.h.service.connect.InstallGlancesJobHandler] There is no link to HipChat, no need to install glances.
+[INFO] [talledLocalContainer] 2019-08-04 18:17:45,452 Caesium-1-2 INFO ServiceRunner     [c.a.j.p.h.service.ping.RefreshConnectionStatusJobHandler] Running RefreshConnectionStatusJobHandler...
+[INFO] [talledLocalContainer] ################### [SetUploadedDocumentsPostFunction] START ##################################
+[INFO] [talledLocalContainer] [SetUploadedDocumentsPostFunction] ChangeItem : Field  status , Typejira , TO  3
+[INFO] [talledLocalContainer] Key : attachment :  Value null  New [temp6556697817101199021]
+[INFO] [talledLocalContainer] Key : description :  Value DESC - TEST - 01  New DESC - TEST - 01
+[INFO] [talledLocalContainer] TOTAL Attachment :  -> 3
+[INFO] [talledLocalContainer] Attachment : Filename -> Desert.jpg , ID -> 10113 , Created 2019-08-04 18:10:40.243
+[INFO] [talledLocalContainer] Attachment : Filename -> JIRA_Ticket.JPG , ID -> 10000 , Created 2019-08-04 12:51:09.683
+[INFO] [talledLocalContainer] Attachment : Filename -> Penguins.jpg , ID -> 10114 , Created 2019-08-04 18:12:26.173
+[INFO] [talledLocalContainer]  ################### [SetUploadedDocumentsPostFunction]  END ##################################
+[INFO] [talledLocalContainer] ################### [CloseParentIssuePostFunction] START ##################################
+[INFO] [talledLocalContainer] [CloseParentIssuePostFunction] ChangeItem : Field  status , Typejira , TO  3
+[INFO] [talledLocalContainer] [CloseParentIssuePostFunction] ChangeItem : Field  Attachment , Typejira , TO  10115
+[INFO] [talledLocalContainer] TOTAL Attachment :  -> 3
+[INFO] [talledLocalContainer] Attachment : Filename -> Desert.jpg , ID -> 10113 , Created 2019-08-04 18:10:40.243
+[INFO] [talledLocalContainer] Attachment : Filename -> JIRA_Ticket.JPG , ID -> 10000 , Created 2019-08-04 12:51:09.683
+[INFO] [talledLocalContainer] Attachment : Filename -> Penguins.jpg , ID -> 10114 , Created 2019-08-04 18:12:26.173
+[INFO] [talledLocalContainer] FOUND LAST_ATTCHM_LIST  : OLD  -> 3 , NEW -> 3
+[INFO] [talledLocalContainer]  +++++ NEW DOCUMENT : Filename -> Desert.jpg , ID -> 10113 , Created 2019-08-04 18:10:40.243
+[INFO] [talledLocalContainer]  +++++ NEW DOCUMENT : Filename -> JIRA_Ticket.JPG , ID -> 10000 , Created 2019-08-04 12:51:09.683
+[INFO] [talledLocalContainer]  +++++ NEW DOCUMENT : Filename -> Penguins.jpg , ID -> 10114 , Created 2019-08-04 18:12:26.173
+[INFO] [talledLocalContainer]  ################### [CloseParentIssuePostFunction]  END ##################################

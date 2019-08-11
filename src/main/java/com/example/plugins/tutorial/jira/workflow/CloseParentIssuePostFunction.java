@@ -71,84 +71,30 @@ public class CloseParentIssuePostFunction extends AbstractJiraFunctionProvider {
         doSomething(transientVars,issue);
 
 
-        /*
-        List<ChangeHistory> changes = ComponentAccessor.getChangeHistoryManager().getChangeHistories( issue );
 
-        for (ChangeHistory changeHistory  : changes) {
-            List<ChangeItemBean> changeItemBeans = changeHistory.getChangeItemBeans();
-
-            // log.info("[CloseParentIssuePostFunction] changeHistory :   "+  changeHistory.getId() );
-
-            if(changeItemBeans != null) {
-
-                for (ChangeItemBean changeBean  : changeItemBeans) {
-                    log.info("[CloseParentIssuePostFunction] changeBean : ChangeHistoryID  "+   changeHistory.getId()   + " Field "  +  changeBean.getField() + " , Type" + changeBean.getFieldType() + " , TO  "+ changeBean.getTo()  ) ;
-
-                }
-            }
-
-        }
-        */
 
         log.info(" ################### [CloseParentIssuePostFunction]  END ################################## " );
 
-        // Retrieve the sub-task
-        MutableIssue subTask = getIssue(transientVars);
-
-
-        // Retrieve the parent issue
-        MutableIssue parentIssue = issueManager.getIssueObject(subTask.getParentId());
-
-        // Ensure that the parent issue is not already closed
-        if (parentIssue == null || IssueFieldConstants.CLOSED_STATUS_ID == Integer
-            .parseInt(parentIssue.getStatusId())) {
-            return;
-        }
-
-
-
-
-        // Check that ALL OTHER sub-tasks are closed
-        Collection<Issue> subTasks = subTaskManager.getSubTaskObjects(parentIssue);
-
-        for (Iterator<Issue> iterator = subTasks.iterator(); iterator.hasNext(); ) {
-            Issue associatedSubTask = iterator.next();
-            if (!subTask.getKey().equals(associatedSubTask.getKey()) &&
-                IssueFieldConstants.CLOSED_STATUS_ID != Integer.parseInt(associatedSubTask.getStatus().getId())) {
-                return;
-            }
-        }
-
-        // All sub-tasks are now closed - close the parent issue
-        try {
-            closeIssue(parentIssue);
-        } catch (WorkflowException e) {
-            log.error(
-                "Error occurred while closing the issue: " + parentIssue.getKey() + ": " + e, e);
-            e.printStackTrace();
-        }
     }
 
 
     private void doSomething(Map transientVars,MutableIssue issue) {
 
+        Map<String, List<String>> cache = WFCacheManager.getUploadedDocCacheForRead();
 
-        WFHelper.doSomething( transientVars,issue,customFieldManager,false );
+        if(cache.containsKey( issue.getKey() )) {
 
-        /*
-        final StringBuffer attachmentValue= new StringBuffer(  ) ;
-        Map<String, ModifiedValue> fields = issue.getModifiedFields();
-        fields.forEach((k, v) -> {
-            log.info(("Key : " + k + " :  Value " + v.getOldValue() + "  New "+ v.getNewValue() ));
+            List<String> files = cache.get( issue.getKey() );
+            if ( (files != null) && files.size() > 0) {
 
-            if(k.equalsIgnoreCase( "attachment" )) {
-                // attachmentValue = (String) v.getNewValue();
-                // attachmentValue.append( (String) v.getNewValue() ) ;
-
-
+                for(String fileEntry: files){
+                    log.info("[CloseParentIssuePostFunction] From Cache : Uploaded File for " + issue.getKey() + "  -> "+ fileEntry) ;
+                }
             }
-        });
-        */
+        } else {
+            log.info("No KEY for issue " + issue.getKey() + " found ") ;
+        }
+
         AttachmentManager attachmentManager = ComponentAccessor.getAttachmentManager();
         Iterable<Attachment> attachList = attachmentManager.getAttachments(issue) ;
 
@@ -158,27 +104,6 @@ public class CloseParentIssuePostFunction extends AbstractJiraFunctionProvider {
                 log.info("Attachment : Filename -> " + attchEntry.getFilename()
                         + " , ID -> " + attchEntry.getId()  + " , Created " + attchEntry.getCreated() );
             }
-
-
-        if( transientVars.get( "LAST_ATTCHM_LIST") != null) {
-            List<Long> old_attachList=  (  List<Long>) transientVars.get( "LAST_ATTCHM_LIST") ;
-            Collection<Attachment> attachListAll = issue.getAttachments();
-
-            log.info("FOUND LAST_ATTCHM_LIST  : OLD  -> " + old_attachList.size() + " , NEW -> "+ attachListAll.size() ) ;
-
-            for(Attachment attchEntry: attachListAll){
-
-                if(old_attachList.contains( attchEntry.getId() )) {
-                    log.info(" +++++ NEW DOCUMENT : Filename -> " + attchEntry.getFilename()
-                            + " , ID -> " + attchEntry.getId()  + " , Created " + attchEntry.getCreated() );
-                }
-            }
-
-
-        } else {
-
-            log.info("LAST_ATTCHM_LIST NOT FOUND :  !!!!!!!!!!!!!!!!!!  " ) ;
-        }
     }
 
     private List<ChangeItemBean> printChangeItems(Map transientVars) {
